@@ -1,0 +1,55 @@
+{
+  "name": "Hookrest Api's",
+  "version": "1.0.0",
+  "description": "Simple REST API with easy and minimalistic integration for WhatsApp Bot Developers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "whatsapp",
+    "bot",
+    "downloader",
+    "ai",
+    "tools",
+    "scraper"
+  ],
+  "author": "danz-dev",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1",
+    "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "file-type": "^16.5.4",
+    "form-data": "^4.0.0",
+    "moment-timezone": "^0.5.43",
+    "node-fetch": "^2.7.0",
+    "node-upload-images": "^1.0.1",
+    "qrcode": "^1.5.3",
+    "qs": "^6.11.2",
+    "yt-search": "^2.10.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AllxdDev-Hosting/allxddev-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AllxdDev-Hosting/allxddev-api/issues"
+  },
+  "homepage": "https://github.com/AllxdDev-Hosting/allxddev-api#readme"
+}
