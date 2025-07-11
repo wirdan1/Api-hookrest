@@ -1,7 +1,7 @@
 {
   "openai": [
     {
-      "name": "Gemini",
+      "name": "Gpt",
       "desc": "",
       "status": "error",
       "path": "/ai/gpt?prompt=",
