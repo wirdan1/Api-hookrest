@@ -6,6 +6,13 @@
       "status": "error",
       "path": "/ai/gpt?prompt=",
       "premium": false
+    },
+    {
+      "name": "Gpt",
+      "desc": "",
+      "status": "error",
+      "path": "/ai/gpt?prompt=",
+      "premium": false
     }
   ],
   "downloader": [
