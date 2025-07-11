@@ -3,15 +3,15 @@
     {
       "name": "Gpt",
       "desc": "",
-      "status": "error",
+      "status": "ready",
       "path": "/ai/gpt?prompt=",
       "premium": false
     },
     {
-      "name": "Gpt",
+      "name": "Lumin-AI",
       "desc": "",
-      "status": "error",
-      "path": "/ai/gpt?prompt=",
+      "status": "ready",
+      "path": "/ai/luminai?prompt=",
       "premium": false
     }
   ],
@@ -26,7 +26,7 @@
     {
       "name": "Ytmp3",
       "desc": "",
-      "status": "ready",
+      "status": "maintenance",
       "path": "/download/ytmp3?url=",
       "premium": false
     }
