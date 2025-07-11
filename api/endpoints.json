@@ -11,7 +11,7 @@
       "name": "Lumin-AI",
       "desc": "",
       "status": "ready",
-      "path": "/ai/luminai?prompt=",
+      "path": "/ai/luminai?text=",
       "premium": false
     }
   ],
