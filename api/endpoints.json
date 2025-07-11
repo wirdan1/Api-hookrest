@@ -31,6 +31,29 @@
       "premium": false
     }
   ],
+  "random": [
+    {
+      "name": "Blue Archive",
+      "desc": "",
+      "status": "ready",
+      "path": "/random/ba",
+      "premium": false
+    },
+    {
+      "name": "nsfw",
+      "desc": "",
+      "status": "ready",
+      "path": "/random/nsfw",
+      "premium": false
+    },
+    {
+      "name": "loli",
+      "desc": "",
+      "status": "ready",
+      "path": "/random/loli",
+      "premium": false
+    }
+  ],
   "info": [
     {
       "name": "Info Bola",
