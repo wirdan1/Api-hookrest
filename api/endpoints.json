@@ -31,6 +31,15 @@
       "premium": false
     }
   ],
+  "info": [
+    {
+      "name": "Info bola",
+      "desc": "",
+      "status": "ready",
+      "path": "/info/bola",
+      "premium": false
+    }
+  ],
   "api": [
     {
       "name": "Status Api",
