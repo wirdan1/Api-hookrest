@@ -8,6 +8,15 @@
       "premium": false
     }
   ],
+  "downloader": [
+    {
+      "name": "Tiktok",
+      "desc": "",
+      "status": "ready",
+      "path": "/download/tiktok?url=",
+      "premium": false
+    }
+  ],
   "api": [
     {
       "name": "Status Api",
