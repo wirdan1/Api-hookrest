@@ -471,44 +471,153 @@
       opacity: 0.05;
     }
     
-    .api-info {
-  flex: 1;
-  padding-right: 1rem;
-  position: relative;
-}
-
-.api-info h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-right: 100px; /* Space for status badge */
-}
-
-.api-info p {
-  color: var(--text-secondary);
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-/* ===== Status - Positioned at top right ===== */
-.status {
-  position: absolute;
-  top: 0;
-  right: 0;
+    .api-info h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .api-info p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    /* ===== Status ===== */
+    .status {
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.25rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 50px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
+  margin-bottom: 1.5rem;
   transition: var(--transition);
   text-transform: capitalize;
-  white-space: nowrap;
+}
+
+/* Status Ready - Hijau */
+.status {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Status Maintenance - Oranye */
+.status.maintenance {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Status Error/Down - Merah */
+.status.error,
+.status.down,
+.status.danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Status Beta/Testing - Biru */
+.status.beta,
+.status.testing {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Status Deprecated - Abu-abu */
+.status.deprecated {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* Dark theme status colors */
+[data-theme="dark"] .status {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .status.maintenance {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="dark"] .status.error,
+[data-theme="dark"] .status.down,
+[data-theme="dark"] .status.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .status.beta,
+[data-theme="dark"] .status.testing {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .status.deprecated {
+  background: rgba(107, 114, 128, 0.15);
+  color: #9ca3af;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  text-shadow: 0 0 8px rgba(107, 114, 128, 0.3);
+}
+
+/* Status hover effects */
+.api-card:hover .status {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .api-card:hover .status {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Status icons */
+.status i {
+  font-size: 0.75rem;
+  animation: pulse 2s infinite;
+}
+
+.status.maintenance i {
+  animation: warning-pulse 1.5s infinite;
+}
+
+.status.error i,
+.status.down i,
+.status.danger i {
+  animation: error-pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes warning-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes error-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.8; transform: scale(1.05); }
+  75% { opacity: 0.9; transform: scale(0.95); }
 }
     
     .play-button {
@@ -1218,16 +1327,16 @@ function renderAPIs(category) {
     
     card.innerHTML = `
       <div class="api-info">
-        <span class="status ${statusClass}">
-          <i class="${statusIcon}"></i>
-          ${api.status}
-        </span>
         <h3>
           <i class="fas fa-code"></i>
           ${api.name} 
           ${premiumBadge}
         </h3>
         ${api.desc ? `<p>${api.desc}</p>` : ""}
+        <span class="status ${statusClass}">
+          <i class="${statusIcon}"></i>
+          ${api.status}
+        </span>
       </div>
       <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
         <i class="fas fa-play"></i> Try API
@@ -1308,16 +1417,16 @@ function renderSearchResults(results) {
       
       card.innerHTML = `
         <div class="api-info">
-          <span class="status ${statusClass}">
-            <i class="${statusIcon}"></i>
-            ${api.status}
-          </span>
           <h3>
             <i class="fas fa-code"></i>
             ${api.name} 
             ${premiumBadge}
           </h3>
           ${api.desc ? `<p>${api.desc}</p>` : ""}
+          <span class="status ${statusClass}">
+            <i class="${statusIcon}"></i>
+            ${api.status}
+          </span>
         </div>
         <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
           <i class="fas fa-play"></i> Try API
