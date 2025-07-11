@@ -2,7 +2,7 @@
   "openai": [
     {
       "name": "Gemini",
-      "desc": "Gemini ai chat",
+      "desc": "",
       "status": "error",
       "path": "/ai/gemini?text=&apikey=",
       "premium": false
