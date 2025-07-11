@@ -1335,7 +1335,7 @@ function renderSearchResults(results) {
 
     // Load statistics
     function loadStats() {
-      fetch('/api/status')
+      fetch('https://api-hookrest.vercel.app/api/status')
         .then(res => res.json())
         .then(data => {
           document.getElementById('total-endpoint').textContent = data.result.totalfitur;
