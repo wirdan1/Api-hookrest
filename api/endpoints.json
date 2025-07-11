@@ -33,10 +33,17 @@
   ],
   "info": [
     {
-      "name": "Info bola",
+      "name": "Info Bola",
       "desc": "",
       "status": "ready",
       "path": "/info/bola",
+      "premium": false
+    },
+    {
+      "name": "Info BMKG",
+      "desc": "",
+      "status": "ready",
+      "path": "/info/bmkg",
       "premium": false
     }
   ],
