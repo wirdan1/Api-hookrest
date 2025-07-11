@@ -4,7 +4,7 @@
       "name": "Gemini",
       "desc": "",
       "status": "error",
-      "path": "/ai/gemini?text=&apikey=",
+      "path": "/ai/gemini?text=",
       "premium": false
     }
   ],
