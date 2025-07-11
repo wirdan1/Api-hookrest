@@ -21,7 +21,7 @@
     {
       "name": "Status Api",
       "desc": "",
-      "status": "Active",
+      "status": "ready",
       "path": "/api/status",
       "premium": false
     }
