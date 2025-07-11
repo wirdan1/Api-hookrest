@@ -1112,9 +1112,9 @@
         allAPIs = apis;
         
         // Set page content
-        document.getElementById("page").textContent = `Docs - ${settings.apititle || "Modern API Hub"}`;
-        document.getElementById("credits").textContent = `© ${new Date().getFullYear()} Powered by ${settings.creator || "Modern API Hub"}`;
-        document.getElementById("apiTitle").textContent = settings.apititle || "Modern API Hub";
+        document.getElementById("page").textContent = `Docs - ${settings.apititle || "Hookrest Api's"}`;
+        document.getElementById("credits").textContent = `© ${new Date().getFullYear()} Powered by ${settings.creator || "Hookrest Api's"}`;
+        document.getElementById("apiTitle").textContent = settings.apititle || "Hookrest Api's";
         
         // Set links
         document.getElementById("githubLink").href = settings.github || "#";
@@ -1181,161 +1181,149 @@
     }
 
     // Render API cards
-function renderAPIs(category) {
-  const apiList = document.getElementById("api-list");
-  apiList.innerHTML = "";
-  
-  allAPIs[category].sort((a, b) => a.name.localeCompare(b.name)).forEach((api, i) => {
-    const card = document.createElement("div");
-    card.className = "api-card";
-    
-    // Determine status class with more detailed logic
-    let statusClass = "";
-    let statusIcon = "fas fa-circle";
-    const status = api.status.toLowerCase();
-    
-    if (status.includes("maintenance") || status.includes("maintain")) {
-      statusClass = "maintenance";
-      statusIcon = "fas fa-tools";
-    } else if (status.includes("error") || status.includes("down") || status.includes("offline")) {
-      statusClass = "error";
-      statusIcon = "fas fa-exclamation-triangle";
-    } else if (status.includes("beta") || status.includes("testing")) {
-      statusClass = "beta";
-      statusIcon = "fas fa-flask";
-    } else if (status.includes("deprecated")) {
-      statusClass = "deprecated";
-      statusIcon = "fas fa-ban";
-    } else if (status.includes("ready") || status.includes("online") || status.includes("active")) {
-      statusClass = "";
-      statusIcon = "fas fa-check-circle";
-    } else {
-      statusClass = "";
-      statusIcon = "fas fa-circle";
+    function renderAPIs(category) {
+      const apiList = document.getElementById("api-list");
+      apiList.innerHTML = "";
+      
+      allAPIs[category].sort((a, b) => a.name.localeCompare(b.name)).forEach((api, i) => {
+        const card = document.createElement("div");
+        card.className = "api-card";
+        
+        let statusClass = "";
+        if (api.status.toLowerCase().includes("maintenance")) statusClass = "danger";
+        else if (api.status.toLowerCase().includes("beta")) statusClass = "warning";
+        
+        const premiumBadge = api.premium ? '<span class="premium-badge"><i class="fas fa-crown"></i> VIP</span>' : '';
+        
+        card.innerHTML = `
+          <div class="api-info">
+            <h3>
+              <i class="fas fa-code"></i>
+              ${api.name} 
+              ${premiumBadge}
+            </h3>
+            ${api.desc ? `<p>${api.desc}</p>` : ""}
+            <span class="status ${statusClass}">
+              <i class="fas fa-circle"></i>
+              ${api.status}
+            </span>
+          </div>
+          <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
+            <i class="fas fa-play"></i> Try API
+          </button>
+        `;
+        
+        apiList.appendChild(card);
+        
+        // Staggered animation
+        setTimeout(() => {
+          card.style.animationDelay = `${i * 0.1}s`;
+        }, 10);
+      });
     }
-    
-    const premiumBadge = api.premium ? '<span class="premium-badge"><i class="fas fa-crown"></i> VIP</span>' : '';
-    
-    card.innerHTML = `
-      <div class="api-info">
-        <span class="status ${statusClass}">
-          <i class="${statusIcon}"></i>
-          ${api.status}
-        </span>
-        <h3>
-          <i class="fas fa-code"></i>
-          ${api.name} 
-          ${premiumBadge}
-        </h3>
-        ${api.desc ? `<p>${api.desc}</p>` : ""}
-      </div>
-      <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
-        <i class="fas fa-play"></i> Try API
-      </button>
-    `;
-    
-    apiList.appendChild(card);
-    
-    // Staggered animation
-    setTimeout(() => {
-      card.style.animationDelay = `${i * 0.1}s`;
-    }, 10);
-  });
-}
 
-// Render search results
-function renderSearchResults(results) {
-  const apiList = document.getElementById("api-list");
-  apiList.innerHTML = "";
-  
-  if (Object.keys(results).length === 0) {
-    apiList.innerHTML = `
-      <div style="text-align: center; padding: 4rem; color: var(--text-muted);">
-        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-        <h3>No APIs found</h3>
-        <p>Try adjusting your search terms</p>
-      </div>
-    `;
-    return;
-  }
-  
-  Object.keys(results).forEach(category => {
-    // Category header
-    const categoryHeader = document.createElement("div");
-    categoryHeader.style.cssText = `
-      grid-column: 1 / -1;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 2rem 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--border-light);
-    `;
-    categoryHeader.innerHTML = `<i class="fas fa-folder-open"></i> ${category}`;
-    apiList.appendChild(categoryHeader);
-    
-    // API cards
-    results[category].forEach((api, i) => {
-      const card = document.createElement("div");
-      card.className = "api-card";
+    // Initialize search functionality
+    function initializeSearch() {
+      const searchInput = document.getElementById("searchInput");
       
-      // Determine status class with more detailed logic
-      let statusClass = "";
-      let statusIcon = "fas fa-circle";
-      const status = api.status.toLowerCase();
+      searchInput.addEventListener("input", function() {
+        const query = this.value.toLowerCase();
+        
+        if (query === "") {
+          // Show current tab content
+          const activeTab = document.querySelector(".tab.active");
+          if (activeTab) {
+            renderAPIs(activeTab.dataset.tab);
+          }
+          return;
+        }
+        
+        const matchedAPIs = {};
+        Object.keys(allAPIs).forEach(category => {
+          const filtered = allAPIs[category].filter(api =>
+            api.name.toLowerCase().includes(query) ||
+            (api.desc && api.desc.toLowerCase().includes(query)) ||
+            api.path.toLowerCase().includes(query)
+          );
+          if (filtered.length) matchedAPIs[category] = filtered;
+        });
+        
+        renderSearchResults(matchedAPIs);
+      });
+    }
+
+    // Render search results
+    function renderSearchResults(results) {
+      const apiList = document.getElementById("api-list");
+      apiList.innerHTML = "";
       
-      if (status.includes("maintenance") || status.includes("maintain")) {
-        statusClass = "maintenance";
-        statusIcon = "fas fa-tools";
-      } else if (status.includes("error") || status.includes("down") || status.includes("offline")) {
-        statusClass = "error";
-        statusIcon = "fas fa-exclamation-triangle";
-      } else if (status.includes("beta") || status.includes("testing")) {
-        statusClass = "beta";
-        statusIcon = "fas fa-flask";
-      } else if (status.includes("deprecated")) {
-        statusClass = "deprecated";
-        statusIcon = "fas fa-ban";
-      } else if (status.includes("ready") || status.includes("online") || status.includes("active")) {
-        statusClass = "";
-        statusIcon = "fas fa-check-circle";
-      } else {
-        statusClass = "";
-        statusIcon = "fas fa-circle";
+      if (Object.keys(results).length === 0) {
+        apiList.innerHTML = `
+          <div style="text-align: center; padding: 4rem; color: var(--text-muted);">
+            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+            <h3>No APIs found</h3>
+            <p>Try adjusting your search terms</p>
+          </div>
+        `;
+        return;
       }
       
-      const premiumBadge = api.premium ? '<span class="premium-badge"><i class="fas fa-crown"></i> VIP</span>' : '';
-      
-      card.innerHTML = `
-        <div class="api-info">
-          <span class="status ${statusClass}">
-            <i class="${statusIcon}"></i>
-            ${api.status}
-          </span>
-          <h3>
-            <i class="fas fa-code"></i>
-            ${api.name} 
-            ${premiumBadge}
-          </h3>
-          ${api.desc ? `<p>${api.desc}</p>` : ""}
-        </div>
-        <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
-          <i class="fas fa-play"></i> Try API
-        </button>
-      `;
-      
-      apiList.appendChild(card);
-      
-      setTimeout(() => {
-        card.style.animationDelay = `${i * 0.1}s`;
-      }, 10);
-    });
-  });
-}
+      Object.keys(results).forEach(category => {
+        // Category header
+        const categoryHeader = document.createElement("div");
+        categoryHeader.style.cssText = `
+          grid-column: 1 / -1;
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--text-primary);
+          margin: 2rem 0 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 2px solid var(--border-light);
+        `;
+        categoryHeader.innerHTML = `<i class="fas fa-folder-open"></i> ${category}`;
+        apiList.appendChild(categoryHeader);
+        
+        // API cards
+        results[category].forEach((api, i) => {
+          const card = document.createElement("div");
+          card.className = "api-card";
+          
+          let statusClass = "";
+          if (api.status.toLowerCase().includes("maintenance")) statusClass = "danger";
+          else if (api.status.toLowerCase().includes("beta")) statusClass = "warning";
+          
+          const premiumBadge = api.premium ? '<span class="premium-badge"><i class="fas fa-crown"></i> VIP</span>' : '';
+          
+          card.innerHTML = `
+            <div class="api-info">
+              <h3>
+                <i class="fas fa-code"></i>
+                ${api.name} 
+                ${premiumBadge}
+              </h3>
+              ${api.desc ? `<p>${api.desc}</p>` : ""}
+              <span class="status ${statusClass}">
+                <i class="fas fa-circle"></i>
+                ${api.status}
+              </span>
+            </div>
+            <button class="play-button" data-endpoint="${api.path}" data-api="${api.name}" data-desc="${api.desc}" data-premium="${api.premium}">
+              <i class="fas fa-play"></i> Try API
+            </button>
+          `;
+          
+          apiList.appendChild(card);
+          
+          setTimeout(() => {
+            card.style.animationDelay = `${i * 0.1}s`;
+          }, 10);
+        });
+      });
+    }
 
     // Load statistics
     function loadStats() {
-      fetch('https://api-hookrest.vercel.app/api/status')
+      fetch('/api/status')
         .then(res => res.json())
         .then(data => {
           document.getElementById('total-endpoint').textContent = data.result.totalfitur;
