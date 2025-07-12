@@ -933,7 +933,7 @@
     .copy-section {
       display: none;
       align-items: center;
-      gap: var(--space-lg);
+      gap: var(--space-sm);
       background: var(--bg-secondary);
       border: 2px solid var(--border-light);
       padding: var(--space-lg);
@@ -942,10 +942,19 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.875rem;
       font-weight: 500;
+      overflow: hidden; /* Prevent overflow */
     }
 
     .copy-section.active {
       display: flex;
+    }
+
+    #copyEndpointText {
+      flex: 1;
+      word-break: break-all;
+      overflow-wrap: break-word;
+      min-width: 0; /* Allow text to shrink */
+      padding-right: var(--space-sm);
     }
 
     .copy-button {
@@ -956,17 +965,13 @@
       border-radius: var(--radius);
       cursor: pointer;
       transition: var(--transition-spring);
-      flex-shrink: 0;
+      flex-shrink: 0; /* Prevent button from shrinking */
       display: flex;
       align-items: center;
       justify-content: center;
       width: 40px;
       height: 40px;
-    }
-
-    .copy-button:hover {
-      background: var(--primary-dark);
-      transform: scale(1.1);
+      min-width: 40px; /* Ensure minimum width */
     }
 
     /* ===== Enhanced Response Content ===== */
@@ -1062,113 +1067,51 @@
 
     /* ===== Enhanced Responsive Design ===== */
     @media (max-width: 768px) {
-      .container {
-        padding: var(--space);
-      }
-
-      #themeToggle {
-        top: var(--space);
-        right: var(--space);
-        width: 48px;
-        height: 48px;
-      }
-
-      .hero {
-        padding: var(--space-xl) 0 var(--space-3xl);
-      }
-
-      #apiTitle {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.125rem;
-      }
-
-      #apiLinks {
+      .copy-section {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: var(--space);
       }
-
-      #apiLinks a {
+      
+      #copyEndpointText {
+        padding-right: 0;
+        text-align: center;
+        padding: var(--space-sm);
+        background: var(--bg-tertiary);
+        border-radius: var(--radius);
+      }
+      
+      .copy-button {
         width: 100%;
-        max-width: 320px;
+        height: 44px;
+        min-width: auto;
       }
-
-      .stats {
-        grid-template-columns: 1fr;
-        gap: var(--space);
-      }
-
-      .api-list {
-        grid-template-columns: 1fr;
-        gap: var(--space);
-      }
-
-      .tabs {
-        gap: var(--space-xs);
-        padding: var(--space-xs);
-      }
-
-      .tab {
-        padding: var(--space) var(--space-lg);
-        font-size: 0.875rem;
-      }
-
-      .modal {
-        padding: var(--space);
-      }
-
+      
       .modal-dialog {
-        padding: var(--space-lg);
+        margin: var(--space);
+        max-width: calc(100vw - 2rem);
       }
-
-      .search-wrapper {
-        max-width: 100%;
-      }
-
-      #searchInput {
-        font-size: 1rem;
-        padding: var(--space) var(--space-lg) var(--space) 3.5rem;
-      }
-
-      .search-icon {
-        left: var(--space);
+      
+      .btn-close {
+        width: 44px;
+        height: 44px;
         font-size: 1.125rem;
       }
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: var(--space-sm);
+      .copy-section {
+        padding: var(--space);
+        font-size: 0.75rem;
       }
-
-      #apiTitle {
-        font-size: 2rem;
+      
+      .modal-dialog {
+        padding: var(--space);
       }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .stats div {
-        padding: var(--space-lg);
-      }
-
-      .stats p {
-        font-size: 2.5rem;
-      }
-
-      .api-card {
-        padding: var(--space-lg);
-      }
-
-      .api-info h3 {
-        font-size: 1.25rem;
-      }
-
-      .modal-header h5 {
-        font-size: 1.5rem;
+      
+      .modal-header {
+        margin-bottom: var(--space);
+        padding-bottom: var(--space);
       }
     }
 
@@ -1262,7 +1205,7 @@
     <!-- Enhanced Hero Section -->
     <section class="hero">
       <div class="title-container">
-        <h1 id="apiTitle">Hookrest Api</h1>
+        <h1 id="apiTitle">Modern API Hub</h1>
       </div>
       <p>Experience the future of API documentation with our sleek, modern interface designed for developers who demand excellence and performance.</p>
       <section id="apiLinks">
@@ -1333,7 +1276,7 @@
 
   <!-- Enhanced Footer -->
   <footer class="footer">
-    <div id="credits">© 2025 Powered by Danz-dev</div>
+    <div id="credits">© 2024 Powered by Modern API Hub</div>
     <div class="contact">
       <a id="githubLink" target="_blank" title="GitHub">
         <i class="fab fa-github"></i>
@@ -1419,9 +1362,9 @@
           if (element) element[property] = value;
         };
         
-        setContent("page", "textContent", `Docs - ${settings.apititle || "Hookrest Api"}`);
-        setContent("credits", "textContent", `© ${new Date().getFullYear()} Powered by ${settings.creator || "Hookrest Api"}`);
-        setContent("apiTitle", "textContent", settings.apititle || "Hookrest Api");
+        setContent("page", "textContent", `Docs - ${settings.apititle || "Modern API Hub"}`);
+        setContent("credits", "textContent", `© ${new Date().getFullYear()} Powered by ${settings.creator || "Modern API Hub"}`);
+        setContent("apiTitle", "textContent", settings.apititle || "Modern API Hub");
         setContent("icon", "href", settings.favicon || "");
         
         // Set links with fallbacks
@@ -1439,13 +1382,13 @@
         // Enhanced meta tags
         const head = document.head;
         const ogTags = [
-          { property: 'og:title', content: settings.apititle || "Hookrest Api" },
+          { property: 'og:title', content: settings.apititle || "Modern API Hub" },
           { property: 'og:description', content: "Experience the future of API documentation with our sleek, modern interface." },
           { property: 'og:image', content: settings.favicon || "" },
           { property: 'og:url', content: window.location.href },
           { property: 'og:type', content: 'website' },
           { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:title', content: settings.apititle || "Hookrest Api" },
+          { name: 'twitter:title', content: settings.apititle || "Modern API Hub" },
           { name: 'twitter:description', content: "Experience the future of API documentation." }
         ];
         
@@ -1812,8 +1755,8 @@
         });
       }
       
-      // Enhanced close modal
-      if (e.target.id === "btn-close" || e.target === document.getElementById("apiResponseModal")) {
+      // Enhanced close modal - perbaiki selector
+      if (e.target.closest("#btn-close") || (e.target === document.getElementById("apiResponseModal"))) {
         closeModal();
       }
     });
