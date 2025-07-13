@@ -24,10 +24,10 @@
       "premium": false
     },
     {
-      "name": "Ytmp3",
+      "name": "Play",
       "desc": "",
-      "status": "maintenance",
-      "path": "/download/ytmp3?url=",
+      "status": "ready",
+      "path": "/download/play?q=&format=",
       "premium": false
     }
   ],
