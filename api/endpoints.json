@@ -2,14 +2,14 @@
   "openai": [
     {
       "name": "Gpt",
-      "desc": "",
+      "desc": "Asisten chat ai for gpt",
       "status": "ready",
       "path": "/ai/gpt?prompt=",
       "premium": false
     },
     {
       "name": "Lumin-AI",
-      "desc": "",
+      "desc": "Asisten chat ai for lumin",
       "status": "ready",
       "path": "/ai/luminai?text=",
       "premium": false
@@ -18,14 +18,14 @@
   "downloader": [
     {
       "name": "Tiktok",
-      "desc": "",
+      "desc": "Downloader tiktok via url",
       "status": "ready",
       "path": "/download/tiktok?url=",
       "premium": false
     },
     {
       "name": "Play",
-      "desc": "",
+      "desc": "Play YouTube video",
       "status": "ready",
       "path": "/download/play?q=&format=",
       "premium": false
@@ -34,21 +34,21 @@
   "random": [
     {
       "name": "Blue Archive",
-      "desc": "",
+      "desc": "Get random blue archive",
       "status": "ready",
       "path": "/random/ba",
       "premium": false
     },
     {
       "name": "nsfw",
-      "desc": "",
+      "desc": "Get random nsfw ( dosa tanggung masing masing-masing )",
       "status": "ready",
       "path": "/random/nsfw",
       "premium": false
     },
     {
       "name": "loli",
-      "desc": "",
+      "desc": "Get random pict loli",
       "status": "ready",
       "path": "/random/loli",
       "premium": false
@@ -57,14 +57,14 @@
   "info": [
     {
       "name": "Info Bola",
-      "desc": "",
+      "desc": "Get info bola new",
       "status": "ready",
       "path": "/info/bola",
       "premium": false
     },
     {
       "name": "Info BMKG",
-      "desc": "",
+      "desc": "Get BMKG info",
       "status": "ready",
       "path": "/info/bmkg",
       "premium": false
@@ -73,7 +73,7 @@
   "api": [
     {
       "name": "Status Api",
-      "desc": "",
+      "desc": "Status api for Hookrest",
       "status": "ready",
       "path": "/api/status",
       "premium": false
