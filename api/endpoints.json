@@ -24,6 +24,13 @@
       "premium": false
     },
     {
+      "name": "Ytdl",
+      "desc": "Downloader YouTube via url format mp3/mp4",
+      "status": "ready",
+      "path": "/download/youtube?url=&format=",
+      "premium": false
+    },
+    {
       "name": "Play",
       "desc": "Play YouTube video",
       "status": "ready",
