@@ -24,10 +24,17 @@
       "premium": false
     },
     {
-      "name": "Ytdl",
-      "desc": "Downloader YouTube via url format mp3/mp4",
+      "name": "Ytmp3",
+      "desc": "Downloader YouTube via url format mp3",
       "status": "ready",
-      "path": "/download/youtube?url=&format=",
+      "path": "/download/ytmp3?url=",
+      "premium": false
+    },
+    {
+      "name": "Ytmp4",
+      "desc": "Downloader YouTube via url format mp4",
+      "status": "ready",
+      "path": "/download/ytmp4?url=",
       "premium": false
     },
     {
