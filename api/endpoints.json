@@ -45,15 +45,6 @@
       "premium": false
     }
   ],
-    "maker": [
-    {
-      "name": "Brat-vid",
-      "desc": "Asisten chat ai for lumin",
-      "status": "ready",
-      "path": "/maker/bratvid?text=&delay=",
-      "premium": false
-    }
-  ],
   "random": [
     {
       "name": "Blue Archive",
