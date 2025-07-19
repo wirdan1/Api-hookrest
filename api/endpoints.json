@@ -45,7 +45,7 @@
       "premium": false
     }
   ],
-    "openai": [
+    "maker": [
     {
       "name": "Brat-vid",
       "desc": "Asisten chat ai for lumin",
