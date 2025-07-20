@@ -30,56 +30,6 @@
   --danger: #e74c3c;
 }
 
-/* ===== Loading Screen Styles ===== */
-#loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--darker);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease;
-}
-
-.loading-spinner-large {
-  border: 5px solid rgba(108, 92, 231, 0.1);
-  border-top: 5px solid var(--accent);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  color: var(--text);
-  animation: spin 1s linear infinite;
-  margin-bottom: 10px;
-}
-
-.loading-text {
-  color: var(--text);
-  font-size: 1.2rem;
-  margin-top: 5px;
-  text-align: center;
-  font-weight: 500;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background: var(--darker);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
-}
-
 /* ===== Animated Particle Background ===== */
 .particles-bg {
   position: fixed;
