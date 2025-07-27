@@ -59,6 +59,25 @@
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
+  /* Dark mode variables */
+  [data-theme="dark"] {
+    --primary: #64b5f6;
+    --primary-dark: #42a5f5;
+    --primary-light: #90caf9;
+    --secondary: #81d4fa;
+    --dark: #e0e0e0;
+    --darker: #f5f5f5;
+    --light: #121212;
+    --gray: #b0bec5;
+    --light-gray: #1e1e1e;
+    --lighter-gray: #2a2a2a;
+    --success: #66bb6a;
+    --warning: #ffa726;
+    --danger: #ef5350;
+    --card-bg: #1e1e1e;
+    --card-hover: #2b2b2b;
+  }
+
   .loading-text {
     color: var(--darker);
     font-size: 1.2rem;
@@ -75,159 +94,161 @@
 
   body {
     font-family: 'Poppins', serif;
-    background-color: #ffffff;
-    color: #2c3e50;
+    background-color: var(--light);
+    color: var(--dark);
     padding: 1.5rem;
     min-height: 100vh;
     -webkit-tap-highlight-color: transparent;
     line-height: 1.5;
+    transition: background-color 0.5s ease, color 0.3s ease;
   }
-  body.dark-theme {
-  background-color: #121212;
-  color: #f1f1f1;
-}
 
-body.dark-theme pre,
-body.dark-theme .modal-dialog,
-body.dark-theme input,
-body.dark-theme #submitParamBtn {
-  background-color: #1e1e1e;
-  color: #f1f1f1;
-  border-color: #444;
-}
-
-body.dark-theme input::placeholder {
-  color: #aaa;
-}
-
-body.dark-theme #submitParamBtn {
-  background: #333;
-}
-
-body.dark-theme #apiLinks a {
-  background: #333;
-  border-color: #555;
-  color: #f1f1f1;
-}
-
-body.dark-theme #apiLinks a:nth-child(2) {
-  background: none;
-  border-color: #aaa;
-  color: #aaa;
-}
-body.dark-theme #apiLinks a {
-  background: #1e1e1e;
-  border-color: #444;
-  color: #f1f1f1;
-}
-
-body.dark-theme #apiLinks a:nth-child(2) {
-  background: none;
-  border-color: #f1f1f1;
-  color: #f1f1f1;
-}
-
-body.dark-theme pre {
-  background: #1a1a1a;
-  color: #e0e0e0;
-}
-
-body.dark-theme .modal-body form label {
-  color: #f1f1f1;
-}
-
-body.dark-theme .modal-body form input {
-  background: #2a2a2a;
-  color: #f1f1f1;
-  border-color: #555;
-}
-
-body.dark-theme .modal-body form input::placeholder {
-  color: #aaa;
-}
-
-body.dark-theme .modal-body form input:focus {
-  box-shadow: 0 0 0 1.5px #888;
-}
-
-body.dark-theme #submitParamBtn {
-  background: #444;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-body.dark-theme #submitParamBtn:hover {
-  background: #555;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-body.dark-theme #submitParamBtn:active {
-  transform: translateY(0);
-}
-body.dark-theme .api-card {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.02);
-}
-
-body.dark-theme .api-card:hover {
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-theme .api-info h3 {
-  color: #ffffff;
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-}
-
-body.dark-theme .api-info p {
-  color: #bbbbbb;
-  text-shadow: 0 0 3px #0ff, 0 0 6px #0ff;
-}
-body.dark-theme .play-button {
-  background: #222;
-  color: #00ffff;
-  box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
-  text-shadow: 0 0 5px #00ffff;
-}
-
-body.dark-theme .status {
-  background: rgba(46, 204, 113, 0.08);
-  color: #2ecc71;
-  border-color: rgba(46, 204, 113, 0.2);
-  text-shadow: 0 0 4px #2ecc71;
-}
-
-body.dark-theme .status.warning {
-  background: rgba(243, 156, 18, 0.08);
-  color: #f39c12;
-  border-color: rgba(243, 156, 18, 0.2);
-  text-shadow: 0 0 4px #f39c12;
-}
-
-body.dark-theme .status.danger {
-  background: rgba(231, 76, 60, 0.08);
-  color: #e74c3c;
-  border-color: rgba(231, 76, 60, 0.2);
-  text-shadow: 0 0 4px #e74c3c;
-}
-
-@media (max-width: 768px) {
   body.dark-theme {
     background-color: #121212;
+    color: #f1f1f1;
+  }
+
+  body.dark-theme pre,
+  body.dark-theme .modal-dialog,
+  body.dark-theme input,
+  body.dark-theme #submitParamBtn {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border-color: #444;
+  }
+
+  body.dark-theme input::placeholder {
+    color: #aaa;
+  }
+
+  body.dark-theme #submitParamBtn {
+    background: #333;
+  }
+
+  body.dark-theme #apiLinks a {
+    background: #333;
+    border-color: #555;
+    color: #f1f1f1;
+  }
+
+  body.dark-theme #apiLinks a:nth-child(2) {
+    background: none;
+    border-color: #aaa;
+    color: #aaa;
+  }
+  body.dark-theme #apiLinks a {
+    background: #1e1e1e;
+    border-color: #444;
+    color: #f1f1f1;
+  }
+
+  body.dark-theme #apiLinks a:nth-child(2) {
+    background: none;
+    border-color: #f1f1f1;
+    color: #f1f1f1;
+  }
+
+  body.dark-theme pre {
+    background: #1a1a1a;
     color: #e0e0e0;
-    padding: 1rem;
   }
 
-  body.dark-theme .hero h2 {
-    color: #00ffff;
-    text-shadow: 0 0 6px #00ffff;
+  body.dark-theme .modal-body form label {
+    color: #f1f1f1;
   }
 
-  body.dark-theme .hero p {
+  body.dark-theme .modal-body form input {
+    background: #2a2a2a;
+    color: #f1f1f1;
+    border-color: #555;
+  }
+
+  body.dark-theme .modal-body form input::placeholder {
+    color: #aaa;
+  }
+
+  body.dark-theme .modal-body form input:focus {
+    box-shadow: 0 0 0 1.5px #888;
+  }
+
+  body.dark-theme #submitParamBtn {
+    background: #444;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  body.dark-theme #submitParamBtn:hover {
+    background: #555;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  body.dark-theme #submitParamBtn:active {
+    transform: translateY(0);
+  }
+  body.dark-theme .api-card {
+    background: #1e1e1e;
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.02);
+  }
+
+  body.dark-theme .api-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-theme .api-info h3 {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  body.dark-theme .api-info p {
     color: #bbbbbb;
-    text-shadow: 0 0 4px #00ffff;
+    text-shadow: 0 0 3px rgba(0, 255, 255, 0.3);
   }
-}
+  body.dark-theme .play-button {
+    background: #222;
+    color: #00ffff;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 0 0 16px rgba(0, 255, 255, 0.2);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
+
+  body.dark-theme .status {
+    background: rgba(46, 204, 113, 0.08);
+    color: #2ecc71;
+    border-color: rgba(46, 204, 113, 0.2);
+    text-shadow: 0 0 4px rgba(46, 204, 113, 0.3);
+  }
+
+  body.dark-theme .status.warning {
+    background: rgba(243, 156, 18, 0.08);
+    color: #f39c12;
+    border-color: rgba(243, 156, 18, 0.2);
+    text-shadow: 0 0 4px rgba(243, 156, 18, 0.3);
+  }
+
+  body.dark-theme .status.danger {
+    background: rgba(231, 76, 60, 0.08);
+    color: #e74c3c;
+    border-color: rgba(231, 76, 60, 0.2);
+    text-shadow: 0 0 4px rgba(231, 76, 60, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    body.dark-theme {
+      background-color: #121212;
+      color: #e0e0e0;
+      padding: 1rem;
+    }
+
+    body.dark-theme .hero h2 {
+      color: #00ffff;
+      text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+    }
+
+    body.dark-theme .hero p {
+      color: #bbbbbb;
+      text-shadow: 0 0 4px rgba(0, 255, 255, 0.2);
+    }
+  }
 
   body.dark-theme .api-list {
     /* tetap grid 1 kolom, tidak perlu perubahan khusus */
@@ -236,86 +257,99 @@ body.dark-theme .status.danger {
   body.dark-theme .stats {
     /* tetap grid 2 kolom, tidak perlu perubahan khusus */
   }
-}
-body.dark-theme .loading-spinner,
-body.dark-theme .loading-spinner-large {
-  border-top-color: #f1f1f1;
-  border-color: rgba(200, 200, 200, 0.1);
-}
+
+  body.dark-theme .loading-spinner,
+  body.dark-theme .loading-spinner-large {
+    border-top-color: #f1f1f1;
+    border-color: rgba(200, 200, 200, 0.1);
+  }
 
   #themeToggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
-  color: #333;
-  transition: transform 0.3s ease;
-}
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    color: #333;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 
-#themeToggle:hover {
-  transform: rotate(20deg);
-}
+  #themeToggle:hover {
+    transform: rotate(20deg) scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 
-body.dark-theme #themeToggle {
-  color: #f1f1f1;
-}
+  body.dark-theme #themeToggle {
+    color: #f1f1f1;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 
-/* Animasi bulan (replace matahari) */
-body.dark-theme #themeIcon {
-  animation: rotateMoon 0.4s ease;
-}
-@keyframes rotateMoon {
-  from { transform: rotate(0); }
-  to { transform: rotate(360deg); }
-}
+  /* Animasi ikon tema */
+  #themeIcon {
+    transition: transform 0.5s ease, opacity 0.3s ease;
+    width: 24px;
+    height: 24px;
+  }
 
-/* Style tambahan stats di dark mode */
-body.dark-theme .stats div {
-  background: #1e1e1e;
-  border-color: #444;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+  /* Style tambahan stats di dark mode */
+  body.dark-theme .stats div {
+    background: #1e1e1e;
+    border-color: #444;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
 
-body.dark-theme .stats div:hover {
-  background: #2b2b2b;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
+  body.dark-theme .stats div:hover {
+    background: #2b2b2b;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
 
-body.dark-theme .stats h3 {
-  color: #00ffff;
-  text-shadow: 0 0 6px #00ffff;
-}
+  body.dark-theme .stats h3 {
+    color: #00ffff;
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+  }
 
-body.dark-theme .stats p {
-  color: #ffffff;
-  text-shadow: 0 0 4px #ffffff;
-}
+  body.dark-theme .stats p {
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+  }
 
   .d-none {
     display: none !important;
   }
 
   #apiLinks a {
-  background: var(--darker);
-  border: 2px solid var(--darker);
-  padding: 0.4rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-decoration: none;
-  color: white;
-  margin-right: 0.6rem;
-  transition: all 0.4s ease;
+    background: var(--darker);
+    border: 2px solid var(--darker);
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    margin-right: 0.6rem;
+    transition: all 0.4s ease;
+    border-radius: 4px;
   }
 
   #apiLinks a:nth-child(2) {
-  background: none;
-  border: 2px solid var(--darker);
-  color: var(--darker);
+    background: none;
+    border: 2px solid var(--darker);
+    color: var(--darker);
   }
 
+  body.dark-theme #apiLinks a:nth-child(2) {
+    border-color: #f1f1f1;
+    color: #f1f1f1;
+  }
+
+  #apiLinks a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
 
   pre {
     white-space: pre-wrap;
@@ -386,7 +420,6 @@ body.dark-theme .stats p {
   #submitParamBtn:active {
     transform: translateY(0);
   }
-
 
   .loading-spinner {
     margin: 2rem auto 0.5rem auto;
@@ -707,20 +740,20 @@ body.dark-theme .stats p {
     height: 0;
   }
   body.dark-theme .tabs {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
-  padding: 0.5rem 0;
-  box-shadow: inset 0 -1px 0 #2c2c2c;
-}
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+    padding: 0.5rem 0;
+    box-shadow: inset 0 -1px 0 #2c2c2c;
+  }
 
-body.dark-theme .tabs::-webkit-scrollbar {
-  display: none;
-}
+  body.dark-theme .tabs::-webkit-scrollbar {
+    display: none;
+  }
 
-body.dark-theme .tabs > * {
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff;
-}
+  body.dark-theme .tabs > * {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
 
   .tab {
     background: none;
@@ -733,6 +766,7 @@ body.dark-theme .tabs > * {
     font-size: 1rem;
     white-space: nowrap;
     position: relative;
+    transition: all 0.3s ease;
   }
 
   .tab.active {
@@ -747,46 +781,48 @@ body.dark-theme .tabs > * {
     left: 0;
     width: 0;
     height: 2px;
+    background: var(--darker);
+    transition: width 0.3s ease;
   }
 
   .tab:hover:not(.active):after {
     width: 100%;
   }
   body.dark-theme .tab {
-  background: none;
-  color: rgba(255, 255, 255, 0.6);
-  border: none;
-  font-weight: 700;
-  border-bottom: 2px solid transparent;
-  padding: 0.25rem 0;
-  cursor: pointer;
-  font-size: 1rem;
-  white-space: nowrap;
-  position: relative;
-  transition: all 0.3s ease;
-}
+    background: none;
+    color: rgba(255, 255, 255, 0.6);
+    border: none;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    position: relative;
+    transition: all 0.3s ease;
+  }
 
-body.dark-theme .tab.active {
-  border-bottom: 2.5px solid #00ffff;
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff;
-}
+  body.dark-theme .tab.active {
+    border-bottom: 2.5px solid #00ffff;
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
 
-body.dark-theme .tab:after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #00ffff;
-  box-shadow: 0 0 6px #00ffff;
-  transition: width 0.3s ease;
-}
+  body.dark-theme .tab:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00ffff;
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+    transition: width 0.3s ease;
+  }
 
-body.dark-theme .tab:hover:not(.active):after {
-  width: 100%;
-}
+  body.dark-theme .tab:hover:not(.active):after {
+    width: 100%;
+  }
 
   /* ===== API Card Animations ===== */
   .api-list {
@@ -796,12 +832,12 @@ body.dark-theme .tab:hover:not(.active):after {
     margin-bottom: 4rem;
   }
   body.dark-theme .api-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 4rem;
-  background-color: transparent; /* opsional, jika ingin efek tambahan */
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+    background-color: transparent;
+  }
 
   /* ===== API Cards ===== */
   .api-card {
@@ -822,20 +858,21 @@ body.dark-theme .tab:hover:not(.active):after {
     overflow: hidden;
   }
   body.dark-theme .api-card {
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 2px 10px rgba(0, 255, 255, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-  color: #e0e0e0;
-}
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    color: #e0e0e0;
+  }
 
   .api-card:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-
+    transform: translateY(-5px);
   }
   body.dark-theme .api-card:hover {
-  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.15);
-}
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.15);
+    transform: translateY(-5px);
+  }
 
   .api-card::before {
     content: '';
@@ -848,21 +885,21 @@ body.dark-theme .tab:hover:not(.active):after {
     transition: opacity 0.3s ease;
   }
   body.dark-theme .api-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
 
-body.dark-theme .api-card:hover::before {
-  opacity: 1;
-}
+  body.dark-theme .api-card:hover::before {
+    opacity: 1;
+  }
 
   .api-card:hover::before {
     opacity: 1;
@@ -872,19 +909,19 @@ body.dark-theme .api-card:hover::before {
     transform: translateX(3px);    
   }
   body.dark-theme .api-card:hover .play-button {
-  transform: translateX(3px);
-  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.3));
-}
+    transform: translateX(3px);
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.3));
+  }
 
   .api-info {
     flex: 1;
     padding-right: 1rem;
   }
   body.dark-theme .api-info {
-  flex: 1;
-  padding-right: 1rem;
-  color: #dddddd;
-}
+    flex: 1;
+    padding-right: 1rem;
+    color: #dddddd;
+  }
 
   .play-button {
     background: var(--darker);
@@ -906,28 +943,28 @@ body.dark-theme .api-card:hover::before {
     white-space: nowrap;
   }
   body.dark-theme .play-button {
-  background: #111820;
-  border: none;
-  border-radius: 2px;
-  padding: 10px 10px;
-  color: #00ffff;
-  cursor: pointer;
-  font-size: 0.88rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 0 6px rgba(0, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  align-self: center;
-  margin-top: 0;
-  white-space: nowrap;
-}
+    background: #111820;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 10px;
+    color: #00ffff;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    align-self: center;
+    margin-top: 0;
+    white-space: nowrap;
+  }
 
-body.dark-theme .play-button:hover {
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.6);
-  transform: translateY(-1px);
-}
+  body.dark-theme .play-button:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.6);
+    transform: translateY(-1px);
+  }
 
   @keyframes cardEntrance {
     from {
@@ -952,7 +989,6 @@ body.dark-theme .play-button:hover {
     font-weight: 500;
     margin-bottom: 0.7rem;
     line-height: 1.5;
-
   }
 
   .api-card:hover .status {
@@ -1112,21 +1148,21 @@ body.dark-theme .play-button:hover {
 
   <div class="container">
   <button id="themeToggle" aria-label="Toggle Dark Mode">
-  <svg id="themeIcon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-    <!-- Matahari default -->
-    <circle cx="12" cy="12" r="5" />
-    <g id="sunRays">
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-    </g>
-  </svg>
-</button>
+    <svg id="themeIcon" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <!-- Default sun icon -->
+      <circle cx="12" cy="12" r="5" />
+      <g id="sunRays">
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </g>
+    </svg>
+  </button>
 <section class="hero fade-in">
       <div class="title-container">
         <h2 id="apiTitle"></h2>
@@ -1243,43 +1279,60 @@ body.dark-theme .play-button:hover {
         }, 1000);
       });
     });
+    
+    // Enhanced theme toggle with smooth transitions
     const toggleBtn = document.getElementById('themeToggle');
-  const icon = document.getElementById('themeIcon');
-  const sunRays = document.getElementById('sunRays');
-  let currentTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('themeIcon');
+    let currentTheme = localStorage.getItem('theme') || 'light';
 
-  function updateIcon(isDark) {
-    if (isDark) {
-      icon.innerHTML = `
-        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>`;
+    // Set initial theme
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-theme');
+      updateIcon(true);
     } else {
-      icon.innerHTML = `
-        <circle cx="12" cy="12" r="5" />
-        <g id="sunRays">
-          <line x1="12" y1="1" x2="12" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="3" y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-        </g>`;
+      updateIcon(false);
     }
-  }
 
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    updateIcon(true);
-  } else {
-    updateIcon(false);
-  }
+    function updateIcon(isDark) {
+      if (isDark) {
+        // Moon icon for dark mode
+        icon.innerHTML = `
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        `;
+      } else {
+        // Sun icon for light mode
+        icon.innerHTML = `
+          <circle cx="12" cy="12" r="5" />
+          <g id="sunRays">
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </g>
+        `;
+      }
+    }
 
-  toggleBtn.addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-theme');
-    updateIcon(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  });
+    toggleBtn.addEventListener('click', () => {
+      const isDark = !document.body.classList.contains('dark-theme');
+      
+      // Add transition class for smooth color changes
+      document.body.classList.add('theme-transition');
+      
+      // Toggle dark mode
+      document.body.classList.toggle('dark-theme', isDark);
+      updateIcon(isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      
+      // Remove transition class after animation completes
+      setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+      }, 500);
+    });
 
     async function loadSettings() {
       const tabsContainer = document.getElementById("tabs");
