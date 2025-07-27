@@ -36,13 +36,6 @@
       "status": "ready",
       "path": "/download/ytmp4?url=",
       "premium": false
-    },
-    {
-      "name": "Play",
-      "desc": "Play YouTube video",
-      "status": "ready",
-      "path": "/download/play?q=&format=",
-      "premium": false
     }
   ],
   "random": [
