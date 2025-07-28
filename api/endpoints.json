@@ -27,7 +27,7 @@
       "name": "Tiktok",
       "desc": "Downloader tiktok via url",
       "status": "ready",
-      "path": "/download/tiktok?url=https://vm.tiktok.com/ZSSj4EHFT/",
+      "path": "/download/tiktok?url=",
       "premium": false
     },
     {
