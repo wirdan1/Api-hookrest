@@ -105,6 +105,16 @@
       "premium": false
     }
   ],
+  ],
+  "tools": [
+    {
+      "name": "Upscale",
+      "desc": "Image to hd",
+      "status": "ready",
+      "path": "/tools/upscale?url=",
+      "premium": false
+    }
+  ],
   "info": [
     {
       "name": "Info Bola",
