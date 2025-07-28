@@ -24,6 +24,13 @@
       "premium": false
     },
     {
+      "name": "Xnxx",
+      "desc": "Downloader xnxx video,download via url",
+      "status": "ready",
+      "path": "/download/xnxx?url=",
+      "premium": false
+    },
+    {
       "name": "Ytmp3",
       "desc": "Downloader YouTube via url format mp3",
       "status": "ready",
