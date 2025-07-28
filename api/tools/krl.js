@@ -1,4 +1,4 @@
-const { infoRoute, tarifKereta, jadwalKereta } = require('../services/krlService');
+const { infoRoute, tarifKereta, jadwalKereta } = require('../src/krlservice');
 
 module.exports = function (app) {
   app.get('/krl/stations', async (req, res) => {
