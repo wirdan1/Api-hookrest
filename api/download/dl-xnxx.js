@@ -42,7 +42,7 @@ async function xnxxDownload(url) {
 }
 
 module.exports = function (app) {
-  app.get('/xnxx/downloadv2', async (req, res) => {
+  app.get('/download/xnxx', async (req, res) => {
     const { url } = req.query;
 
     if (!url || !/^https?:\/\//.test(url)) {
