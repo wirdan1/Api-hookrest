@@ -8,6 +8,13 @@
       "premium": false
     },
     {
+      "name": "Qwen-ai",
+      "desc": "Asisten chat ai for qwen",
+      "status": "ready",
+      "path": "/ai/qwen?prompt=",
+      "premium": false
+    },
+    {
       "name": "Lumin-AI",
       "desc": "Asisten chat ai for lumin",
       "status": "ready",
