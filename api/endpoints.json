@@ -68,29 +68,6 @@
       "premium": false
     }
   ],
-  "tools": [
-    {
-      "name": "KRL Fare",
-      "desc": "",
-      "status": "ready",
-      "path": "/krl/fare?from=&to=",
-      "premium": false
-    },
-    {
-      "name": "KRL stasions",
-      "desc": "",
-      "status": "ready",
-      "path": "/krl/stasions",
-      "premium": false
-    },
-    {
-      "name": "KRL schedule",
-      "desc": "",
-      "status": "ready",
-      "path": "/krl/schedule?stasion=&from=&to=",
-      "premium": false
-    }
-  ],
   "random": [
     {
       "name": "Blue Archive",
