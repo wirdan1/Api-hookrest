@@ -38,6 +38,59 @@
       "premium": false
     }
   ],
+  "search": [
+    {
+      "name": "Youtube",
+      "desc": "Youtube search",
+      "status": "ready",
+      "path": "/search/youtube?q=",
+      "premium": false
+    },
+    {
+      "name": "Xnxx",
+      "desc": "Xnxx search",
+      "status": "ready",
+      "path": "/xnxx/search?query=",
+      "premium": false
+    },
+    {
+      "name": "Lirik",
+      "desc": "Lyrics search",
+      "status": "ready",
+      "path": "/api/lyrics?q=",
+      "premium": false
+    },
+    {
+      "name": "Komiku",
+      "desc": "Komiku search",
+      "status": "ready",
+      "path": "/komiku/search?q=",
+      "premium": false
+    }
+  ],
+  "tools": [
+    {
+      "name": "KRL Fare",
+      "desc": "",
+      "status": "ready",
+      "path": "/krl/fare?from=&to=",
+      "premium": false
+    },
+    {
+      "name": "KRL stasions",
+      "desc": "",
+      "status": "ready",
+      "path": "/krl/stasions",
+      "premium": false
+    },
+    {
+      "name": "KRL schedule",
+      "desc": "",
+      "status": "ready",
+      "path": "/krl/schedule?stasion=&from=&to=",
+      "premium": false
+    }
+  ],
   "random": [
     {
       "name": "Blue Archive",
