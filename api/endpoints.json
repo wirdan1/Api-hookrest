@@ -8,6 +8,13 @@
       "premium": false
     },
     {
+      "name": "Gemmy plus",
+      "desc": "Asisten chat ai for gemmy suport image",
+      "status": "ready",
+      "path": "/gemmy/chat?question=&imagePath=",
+      "premium": false
+    },
+    {
       "name": "Gemmy chat",
       "desc": "Asisten chat ai for gemmy",
       "status": "ready",
