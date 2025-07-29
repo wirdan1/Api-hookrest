@@ -8,6 +8,20 @@
       "premium": false
     },
     {
+      "name": "Gemmy chat",
+      "desc": "Asisten chat ai for gemmy",
+      "status": "ready",
+      "path": "/gemmy/chat?question=",
+      "premium": false
+    },
+    {
+      "name": "Gemmy text2img",
+      "desc": "Asisten ai gemmy text to img",
+      "status": "ready",
+      "path": "/gemmy/text2img?prompt=",
+      "premium": false
+    },
+    {
       "name": "Qwen-ai",
       "desc": "Asisten chat ai for qwen",
       "status": "ready",
